@@ -146,6 +146,39 @@ a:active, a:visited {
 .upper {
     text-transform: uppercase;
 }
+/* ---------------------------------- modal --------------------------------- */
+.modal-img {
+    object-fit: cover;
+}
+.cart-title {
+    height: 2rem;
+}
+.cart-price {
+    height: 3rem;
+}
+.quantity {
+    margin: 1em;
+    font-weight: 700;
+}
+.stock-avaliable {
+    margin: 0 1em;
+}
+.card-buttons {
+    height: auto;
+}
+.cart-body {
+    height: 100%;
+    background-color: var(--clr-light-grey);
+}
+.total-cart {
+    font-size: 1.25rem;
+    padding: 0 2em;
+}
+.total-price-cart {
+    color: var(--clr-details);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
 /* ------------------------------ media querys ------------------------------ */
 @media screen and (max-width: 576px) {
     .navbar-toggler {
