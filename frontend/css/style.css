@@ -1,0 +1,163 @@
+/* -------------------------------- css reset ------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --clr-light: #ECECEC;
+    --clr-light-grey: #DFDFDF;
+    --clr-grey: #5B5B5B;
+    --clr-details: #B00000;
+    --clr-primary: #FFD600;
+    --clr-dark: #292929;
+}
+a:active, a:visited {
+    text-decoration: none;
+}
+/* ---------------------------- announcement bar ---------------------------- */
+.announcement-bar {
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.announcement-bar p {
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--clr-light);
+    margin: 0;
+}
+/* --------------------------------- navbar --------------------------------- */
+#nav {
+    background-color: var(--clr-dark);
+}
+#nav a {
+    color: var(--clr-primary);
+}
+.nav a, .nav-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    width: 13rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cart button {
+    background-color: var(--clr-primary);
+    color: var(--clr-dark);
+    border: 0;
+    margin: 0.3rem;
+    padding: 0.6rem 1.2rem;
+}
+/* -------------------------------- carousel -------------------------------- */
+.caroussel-img {
+    height: 600px;
+    object-fit:cover;
+    object-position: center;
+}
+/* ----------------------------- on sale section ---------------------------- */
+#onSale {
+    background-color: var(--clr-dark);
+    padding: 4rem;
+    gap: 1rem;
+}
+#onSale .card {
+    padding: 0;
+    min-width: 16rem;
+    max-width: 16rem;
+    background-color: var(--clr-light-grey);
+    border: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-bottom: 0.3rem solid var(--clr-primary);
+}
+.section-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    margin: 0 0 1.5rem 0;
+}
+.card-img-top {
+    height: 16rem;
+    object-fit: cover;
+}
+.card-title {
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.card-text {
+    font-size: 1.3rem;
+}
+.payment-plan {
+    font-size: 1rem;
+    font-weight: 700;
+}
+.plan-text {
+    font-size: 0.9rem;
+}
+/* --------------------------- on tendency section -------------------------- */
+#onTendency {
+    padding: 4rem;
+    gap: 1rem;
+}
+#onTendency .card {
+    padding: 0;
+    min-width: 16rem;
+    max-width: 16rem;
+    background-color: var(--clr-light-grey);
+    border: 1px solid var(--clr-light-grey);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-bottom: 0.3rem solid var(--clr-primary);
+}
+/* ------------------------- aditional info section ------------------------- */
+.add-info {
+    margin: 3rem;
+}
+.add-info >div{
+    border: 2px solid white;
+    padding: 1.3rem;
+    background-color: var(--clr-light-grey);
+}
+.add-info i {
+    color: var(--clr-grey);
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+.add-info h4, p {
+    color: var(--clr-grey);
+    margin: 0;
+}
+.add-info h4 {
+    font-weight: 600;
+}
+/* ----------------------- span to make uppercase text ---------------------- */
+.upper {
+    text-transform: uppercase;
+}
+/* ------------------------------ media querys ------------------------------ */
+@media screen and (max-width: 576px) {
+    .navbar-toggler {
+        order: 1;
+    }
+    .logo {
+        order: 2;
+    }
+    .cart {
+        order: 3;
+    }
+    .announcement-bar p {
+        font-size: .6rem;
+    }
+}
