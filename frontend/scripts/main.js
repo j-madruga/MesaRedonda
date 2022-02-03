@@ -1,6 +1,5 @@
 window.addEventListener('load', () => {
     /* -------------------------------- variables ------------------------------- */
-    let productsArray;
     const API_URL = 'http://127.0.0.1:5000/api/v1'
     /* ---------------------------------- nodes --------------------------------- */
     const onSaleSection = document.getElementById('onSale')
@@ -16,7 +15,7 @@ window.addEventListener('load', () => {
         productsArray = JSON.parse(localStorage.getItem('cart'))
     }
     /* -------------------------------- listeners ------------------------------- */
-    navCart.addEventListener('click', showCart)
+    navCart.addEventListener('click', showCart(relativeRoute))
     /* -------------------------------- functions ------------------------------- */
     // function that gets all the users
     function getAllProducts() {

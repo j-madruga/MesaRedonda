@@ -11,3 +11,6 @@ class Product {
         this.quantity = 1;
     }
 }
+
+/* -------- array that contains products to be saved on localStorage -------- */
+let productsArray;

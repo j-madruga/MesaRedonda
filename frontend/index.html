@@ -16,6 +16,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- --------------------------------- CSS --------------------------------- -->
     <link rel="stylesheet" href="./css/style.css">
+    <!-- ----------------------------- sweet alert ----------------------------- -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Mesa Redonda</title>
 </head>
 
@@ -54,7 +56,6 @@
             </div>
         </div>
     </nav>
-
     <!-- ---------------------------- Modal carrito ---------------------------- -->
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
@@ -72,7 +73,7 @@
                     <div id="cartTotal" class="d-flex col-12 justify-content-end"></div>
                     <div>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
-                        <button type="button" class="btn btn-primary">Finalizar compra</button>
+                        <a href="./pages/purchase.html" class="btn btn-primary">Finalizar compra</a>
                     </div>
                 </div>
             </div>
