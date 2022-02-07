@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- ----------------------------- sweet alert ----------------------------- -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Compra</title>
+    <title>Crear cuenta</title>
 </head>
 
 <body>
@@ -36,16 +36,16 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav" id="navUl">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login.html">Ingresar</a>
+                        <a class="nav-link active" aria-current="page" href="./login.html">Ingresar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ofertas</a>
+                        <a class="nav-link fw-bold" href="#">Crear cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -81,19 +81,20 @@
     </div>
     <!-- -------------------------------- MAIN --------------------------------- -->
     <main>
-        <div class="container">
-            <div class="row" id="purchase">
-                <h3><span class="section-title">Productos en carrito</span></h3>
-            </div>
-            <div class="row">
-                <div id="purchaseTotal" class="col d-flex justify-content-end"></div>
-            </div>
-            <div class="row">
-                <div class="col d-flex justify-content-end">
-                    <a type="button"class="btn btn-secondary" href="../index.html" target="_self">Seguir comprando</a>
-                    <button type="button" class="btn btn-primary" id="finishPurchase">Finalizar compra</button>
+        <!-- --------------------------- newsletter form --------------------------- -->
+        <div class="container user-form" id="signupForm">
+            <form action="" class="">
+                <div>
+                    <h3><span class="section-title text-light">Ingresar</span></h3>
                 </div>
-            </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="signupName" placeholder="nombre">
+                    <input type="email" class="form-control" id="signupEmail" aria-describedby="emailInput" placeholder="email">
+                    <input type="password" class="form-control" id="signupPassword" aria-describedby="passwordInput" placeholder="Contraseña">
+                    <input type="password" class="form-control" id="signupPasswordConfirm" aria-describedby="passwordInputConfirm" placeholder="Repetir contraseña">
+                    <button type="submit" class="btn btn-primary" id="signupButton">Submit</button>
+                </div>
+            </form>
         </div>
     </main>
     <!-- ------------------------------- footer -------------------------------- -->
@@ -189,8 +190,8 @@
     <script src="../scripts/variables.js"></script>
     <!-- ----------------------------- classes.js ------------------------------ -->
     <script src="../scripts/classes.js"></script>
-    <!-- ----------------------------- purchase.js ----------------------------- -->
-    <script src="../scripts/pages/purchase.js"></script>
+    <!-- ------------------------------ signIn.js ------------------------------ -->
+    <script src="../scripts/pages/signup.js"></script>
 </body>
 
 </html>

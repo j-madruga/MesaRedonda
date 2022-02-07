@@ -1,4 +1,17 @@
 window.addEventListener('load', () => {
+    /* ---------------------------------- token --------------------------------- */
+    const token = localStorage.getItem('token')
+    /* ------------- if token exists its because user has logged id ------------- */
+    if (token) {
+        async function printUser() {
+            console.log(relativeRoute);
+            const user = await userHandler.getUserData(token)
+            navUl.innerHTML = personalizedNav(user.user.name)
+            const closeSession = document.getElementById('closeSession')
+            closeSession.addEventListener('click', () => userHandler.signOut())
+        }
+        printUser()
+    }
     /* -------------------------------- listeners ------------------------------- */
     navCart.addEventListener('click', () => cart.showCart(relativeRoute, cartProductList, cartTotal))
     /* -------------------------------- functions ------------------------------- */
@@ -14,7 +27,7 @@ window.addEventListener('load', () => {
         return new Promise((resolve, reject) => {
             fetch(endpoint, settings)
                 .then((response) => resolve(response.json()))
-                .catch((err) => reject(`error obteniendo las tareas (${err})`))
+                .catch((msjErr) => reject(`error obteniendo las tareas (${msjErr})`))
         })
     }
 

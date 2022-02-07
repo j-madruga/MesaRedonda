@@ -1,4 +1,16 @@
 window.addEventListener('load', () => {
+    /* ---------------------------------- token --------------------------------- */
+    const token = localStorage.getItem('token')
+    if(token) {
+        async function printUser() {
+            console.log(relativeRoute);
+            const user = await userHandler.getUserData(token)
+            navUl.innerHTML = personalizedNav(user.user.name)
+            const closeSession = document.getElementById('closeSession')
+            closeSession.addEventListener('click', () => userHandler.signOut())
+        }
+        printUser()
+    }
     /* -------------------------- check if cart exists -------------------------- */
     if (productsArray.length === 0) {
         location.replace('../index.html')
@@ -17,28 +29,30 @@ window.addEventListener('load', () => {
     }
     renderProductsToPurchase()
 
-    function finishPurchase() {
-        Swal.fire({
-            title: 'Desea completar la compra?',
-            text: "Esta accion es irreversible",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Comprar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Compra confirmada',
-                    'Le enviaremos un mail con los detalles de su compra',
-                    'success',
-                ).then((result) => {
-                    if (result.isConfirmed) {
-                        localStorage.setItem('cart', '[]')
-                        location.replace('../index.html')
-                    }
-                })
-            }
-        })
+    async function finishPurchase() {
+        const purchase = await userHandler.addPurchase(token)
+        console.log(purchase);
+        // Swal.fire({
+        //     title: 'Desea completar la compra?',
+        //     text: "Esta accion es irreversible",
+        //     icon: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Comprar'
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+        //         Swal.fire(
+        //             'Compra confirmada',
+        //             'Le enviaremos un mail con los detalles de su compra',
+        //             'success',
+        //         ).then((result) => {
+        //             if (result.isConfirmed) {
+        //                 localStorage.setItem('cart', '[]')
+        //                 location.replace('../index.html')
+        //             }
+        //         })
+        //     }
+        // })
     }
 })

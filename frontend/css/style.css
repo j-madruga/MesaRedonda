@@ -1,9 +1,12 @@
+/* ----------------------------- components.css ----------------------------- */
+@import url("./components.css");
 /* -------------------------------- css reset ------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* -------------------------------- variables ------------------------------- */
 :root {
     --clr-light: #ECECEC;
     --clr-light-grey: #DFDFDF;
@@ -14,92 +17,9 @@
     --clr-dark: #292929;
     --clr-secondary: #137EA7;
 }
-a, a:active, a:visited {
-    text-decoration: none;
-}
-/* ---------------------------- announcement bar ---------------------------- */
-.announcement-bar {
-    height: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.announcement-bar p {
-    font-size: .9rem;
-    font-weight: 600;
-    color: var(--clr-light);
-    margin: 0;
-}
-/* --------------------------------- navbar --------------------------------- */
-#nav {
-    background-color: var(--clr-dark);
-}
-#nav a {
-    color: var(--clr-primary);
-}
-.nav a, .nav-link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.logo {
-    width: 13rem;
-    height: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.cart button {
-    background-color: var(--clr-primary);
-    color: var(--clr-dark);
-    border: 0;
-    margin: 0.3rem;
-    padding: 0.6rem 1.2rem;
-}
-/* -------------------------------- carousel -------------------------------- */
-.caroussel-img {
-    height: 600px;
-    object-fit:cover;
-    object-position: center;
-}
-/* ---------------------------------- modal --------------------------------- */
-.cart-body {
-    height: 100%;
-    background-color: var(--clr-light-grey);
-    border-bottom: 3px solid var(--clr-primary);
-}
-.modal-img {
-    object-fit: cover;
-}
-.cart-title {
-    height: 2rem;
-}
-.cart-price {
-    height: 3rem;
-}
-.quantity {
-    margin: 1em;
-    font-weight: 700;
-}
-.stock-avaliable {
-    margin: 0 1em;
-}
-.card-buttons {
-    height: auto;
-}
-
-.total-cart {
-    font-size: 1.25rem;
-    padding: 0 2em;
-}
-.total-price-cart {
-    color: var(--clr-details);
-    font-size: 1.25rem;
-    font-weight: 700;
-}
+/* -------------------------------------------------------------------------- */
+/*                                    INDEX                                   */
+/* -------------------------------------------------------------------------- */
 /* --------------------------- cateogires section --------------------------- */
 .categories-margin {
     margin: 3rem;
@@ -234,71 +154,6 @@ a, a:active, a:visited {
     color: var(--clr-primary);
     text-align: center;
 }
-/* ----------------------- span to make uppercase text ---------------------- */
-.upper {
-    text-transform: uppercase;
-}
-/* --------------------------------- footer --------------------------------- */
-footer {
-    height: auto;
-    background-color: var(--clr-dark);
-    color: var(--clr-light-grey);
-}
-footer > div:first-child {
-    padding: 1em 1.5em 0;
-}
-footer h5 {
-    color: var(--clr-primary);
-    margin: 1.25em 1em 0.5em 0em;
-    font-weight: 600;
-}
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-footer li {
-    margin-bottom: 0.3em;
-    margin-right: 0.4em;
-}
-footer a, footer p {
-    color: white;
-    margin-bottom: 1em;
-}
-footer i {
-    margin-right: 1em;
-}
-footer img {
-    width: 40px;
-    height: 25px;
-    object-fit: cover;
-    overflow: hidden;
-}
-.footer-about {
-    min-width: 320px;
-}
-.footer-rights {
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.footer-rights p {
-    color: var(--clr-primary);
-    padding: 1em 1em 0;
-}
-footer .footer-rights::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 5%;
-    /* transform: translate(-50%); */
-    width: 90%;
-    height: 0.1rem;
-    background-color: var(--clr-primary);
-}
 /* ------------------------------ media querys ------------------------------ */
 @media screen and (max-width: 576px) {
     .navbar-toggler {
@@ -306,6 +161,7 @@ footer .footer-rights::before {
     }
     .logo {
         order: 2;
+        width: 10rem;
     }
     .cart {
         order: 3;
@@ -313,4 +169,26 @@ footer .footer-rights::before {
     .announcement-bar p {
         font-size: .6rem;
     }
+}
+.user-form {
+    min-width: 350px;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-dark);
+    border-radius: 8px;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    padding: 1.5em;
+}
+.user-form form {
+    min-width: 300px;
+}
+.user-form input {
+    margin-bottom: 0.8em;
+}
+.passMsjError, .emptyFieldMsj {
+    color: var(--clr-light-grey);
 }

@@ -7,17 +7,29 @@ const currentLocation = window.location.pathname // stores current pathname
 // index.html
 const onSaleSection = document.getElementById('onSale')
 const onTendency = document.getElementById('onTendency')
+const navUl = document.getElementById('navUl')
 const navCart = document.getElementById('navCart')
 const cartProductList = document.getElementById('cartProductList')
 const cartTotal = document.getElementById('cartTotal')
 // purchase.html
-let purchaseDiv = document.getElementById('purchase')
-let divTotal = document.getElementById('purchaseTotal')
+const purchaseDiv = document.getElementById('purchase')
+const divTotal = document.getElementById('purchaseTotal')
 const btnPurchase = document.getElementById('finishPurchase')
+// login.html
+const loginEmail = document.getElementById('loginEmail')
+const loginPassword = document.getElementById('loginPassword')
+const loginButton = document.getElementById('loginButton')
+// signup.html
+const signuForm = document.getElementById('signupForm')
+const signupName = document.getElementById('signupName')
+const signupEmail = document.getElementById('signupEmail')
+const signupPassword = document.getElementById('signupPassword')
+const signupPasswordConfirm = document.getElementById('signupPasswordConfirm')
+const signupButton = document.getElementById('signupButton')
 /* -------------------------------- templates ------------------------------- */
-let productCard = function (product) {
+const productCard = function (product) {
     return `<div class="card col">
-                <img src="${product.picture}" class="card-img-top" alt="...">
+                <img src="${relativeRoute}${product.picture}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${product.name.toUpperCase()}</h5>
                     <p class="card-text">$${new Intl.NumberFormat("de-DE", {minimumFractionDigits: '2'}).format(product.price)}</p>
@@ -27,7 +39,7 @@ let productCard = function (product) {
                 </div>
             </div>`
 }
-let productArticle = function (product) {
+const productArticle = function (product) {
     return `<div class="card mb-3" id="card${product.id}">
                 <div class="row g-0">
                     <div class="col-md-3">
@@ -49,17 +61,30 @@ let productArticle = function (product) {
                 </div>
             </div>`
 }
-let totalPriceDisplay = function (totalPrice) {
+const totalPriceDisplay = function (totalPrice) {
     return `<p class="total-cart">Total</p>
             <p class="total-price-cart">$${new Intl.NumberFormat("de-DE", {minimumFractionDigits: '2'}).format(totalPrice)}</p>`
 }
+const personalizedNav = function (userName) {
+    return `<li class="nav-item">
+                <a class="nav-link active fw-bold" aria-current="page" href="${relativeRoute}/index.html">Home</a>
+            </li>
+            <li class="nav-item user-name">
+                <a class="nav-link" href="#">${userName}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="closeSession" href="#">Cerrar sesión</a>
+            </li>`
+}
 /* ------------------ definition of relativeRoute variable ------------------ */
 if (currentLocation === '/frontend/index.html') {
-    relativeRoute = ''
-} else if (currentLocation === '/frontend/pages/purchase.html') {
-    relativeRoute = '../'
+    relativeRoute = '.'
+} else if ((currentLocation === '/frontend/pages/purchase.html') ||
+    (currentLocation === 'frontend/pages/login.html') ||
+    (currentLocation === 'frontend/pages/signup.html')) {
+    relativeRoute = '..'
 } else {
-    relativeRoute = '../../'
+    relativeRoute = '../..'
 }
 /* ------------------- arr of products from local storage ------------------- */
 if (!localStorage.getItem('cart')) {
