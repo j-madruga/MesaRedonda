@@ -4,7 +4,6 @@ window.addEventListener('load', () => {
     /* ------------- if token exists its because user has logged id ------------- */
     if (token) {
         async function printUser() {
-            console.log(relativeRoute);
             const user = await userHandler.getUserData(token)
             navUl.innerHTML = personalizedNav(user.user.name)
             const closeSession = document.getElementById('closeSession')

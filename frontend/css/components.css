@@ -54,7 +54,7 @@ a, a:active, a:visited {
 }
 /* -------------------------------- carousel -------------------------------- */
 .caroussel-img {
-    height: 600px;
+    height: 400px;
     object-fit:cover;
     object-position: center;
 }
@@ -95,6 +95,7 @@ a, a:active, a:visited {
 }
 /* --------------------------------- footer --------------------------------- */
 footer {
+    margin-top: 5em;
     height: auto;
     background-color: var(--clr-dark);
     color: var(--clr-light-grey);
@@ -149,7 +150,6 @@ footer .footer-rights::before {
     top: 0;
     left: 0;
     margin-left: 5%;
-    /* transform: translate(-50%); */
     width: 90%;
     height: 0.1rem;
     background-color: var(--clr-primary);

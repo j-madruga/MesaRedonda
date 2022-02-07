@@ -154,6 +154,23 @@
     color: var(--clr-primary);
     text-align: center;
 }
+/* -------------------------------------------------------------------------- */
+/*                                  PURCHASE                                  */
+/* -------------------------------------------------------------------------- */
+#purchase {
+    margin-top: 2em;
+}
+#purchaseTotal {
+    padding: 1em;
+}
+/* -------------------------------------------------------------------------- */
+.animation {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.animation:hover {
+    transform: scale(1.02);
+}
 /* ------------------------------ media querys ------------------------------ */
 @media screen and (max-width: 576px) {
     .navbar-toggler {

@@ -27,8 +27,9 @@ const signupPassword = document.getElementById('signupPassword')
 const signupPasswordConfirm = document.getElementById('signupPasswordConfirm')
 const signupButton = document.getElementById('signupButton')
 /* -------------------------------- templates ------------------------------- */
+// basic card
 const productCard = function (product) {
-    return `<div class="card col">
+    return `<div class="card col animation">
                 <img src="${relativeRoute}${product.picture}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${product.name.toUpperCase()}</h5>
@@ -39,6 +40,7 @@ const productCard = function (product) {
                 </div>
             </div>`
 }
+// horizontal Card
 const productArticle = function (product) {
     return `<div class="card mb-3" id="card${product.id}">
                 <div class="row g-0">
@@ -61,10 +63,12 @@ const productArticle = function (product) {
                 </div>
             </div>`
 }
+// shows total price
 const totalPriceDisplay = function (totalPrice) {
     return `<p class="total-cart">Total</p>
             <p class="total-price-cart">$${new Intl.NumberFormat("de-DE", {minimumFractionDigits: '2'}).format(totalPrice)}</p>`
 }
+// nav ul to be shown when user is logged in
 const personalizedNav = function (userName) {
     return `<li class="nav-item">
                 <a class="nav-link active fw-bold" aria-current="page" href="${relativeRoute}/index.html">Home</a>

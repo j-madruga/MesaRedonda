@@ -30,7 +30,6 @@ class Cart {
             localStorage.setItem('cart', JSON.stringify(productsArray))
         }
     }
-    
     // method that renders cart in modal
     showCart = (route, divCartProducts, divTotalPrice) => {
         let totalPrice = productsArray.reduce((acum, product) => acum += product.price*product.quantity, 0)
@@ -73,7 +72,6 @@ class Cart {
             divTotalPrice.innerHTML = ''
         }
     }
-    
     // method that decreses quantity by one
     substractQuantity = (product, relativeRoute, divCartProducts, divTotalPrice) => {
         let productInStorage = productsArray.find((productInStorage) => productInStorage.id === product.id)
@@ -83,7 +81,6 @@ class Cart {
         }
         this.showCart(relativeRoute, divCartProducts, divTotalPrice)
     }
-    
     // method that increases quantity by one
     incrementQuantity = (product, relativeRoute, divCartProducts, divTotalPrice) => {
         let productInStorage = productsArray.find((productInStorage) => productInStorage.id === product.id)
@@ -104,6 +101,7 @@ class Cart {
         this.showCart(relativeRoute, divCartProducts, divTotalPrice)
     }
 }
+
 /* ----------------------------- Validator class ---------------------------- */
 class Validator {
     // constructor
@@ -144,6 +142,7 @@ class Validator {
         return emptyFields
     }
 }
+
 /* ------------------------------- User class ------------------------------- */
 class UserHandler {
     // constructor
@@ -164,6 +163,7 @@ class UserHandler {
             .catch((msjErr) => reject(console.log(msjErr)))
         })
     }
+    // method that asigns up a new user
     signUp = (e) => {
         e.preventDefault()
         const passwordRepeats = validator.passwordRepeats(signuForm, signupPassword, signupPasswordConfirm)
@@ -193,6 +193,7 @@ class UserHandler {
             .catch((err) => console.log(err))
         }
     }
+    // method that loggs in a new user
     logIn = (e) => {
         e.preventDefault()
         const endpoint = `${API_URL}/login`
@@ -217,12 +218,14 @@ class UserHandler {
         })
         .catch((err) => console.log(err))
     }
+    // method that sign's out a new user
     signOut = () => {
         localStorage.removeItem('token')
         location.replace(`${relativeRoute}/index.html`)
     }
+    // method that add's purchase to user
     addPurchase = (token) => {
-        const purchase = JSON.parse(localStorage.getItem('cart'))
+        const purchase = localStorage.getItem('cart')
         const endpoint = `${API_URL}/purchases`
         const settings = {
             method: 'PUT',
@@ -230,16 +233,17 @@ class UserHandler {
                 "Content-Type": "application/json",
                 "token": token
             },
-            body: `{purchase: ${purchase}}`
+            body: purchase
         }
         console.log(purchase)
-        // return new Promise((resolve, reject) => {
-        //     fetch(endpoint, settings)
-        //     .then((response) => resolve(response.json()))
-        //     .catch((msjErr) => {reject(console.log(msjErr))})
-        // })
+            fetch(endpoint, settings)
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((msjErr) => console.log(msjErr))
+        
     }
 }
+
 /* --------------------------- cart instantiation --------------------------- */
 let cart = new Cart()
 /* ------------------------- validator instantiation ------------------------ */
