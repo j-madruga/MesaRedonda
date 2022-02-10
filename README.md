@@ -9,7 +9,16 @@ Lo siguiente es una descripción de como instalar el ambiente virtual en windows
 - instalar flask_cors con el comando "pip install -U flask-cors"
 - inicializar la api con el comando "python main.py"
 
-Es necesario tambien crear una carpeta externa al proyecto que sirva como base de datos llamada "db" y dentro de ella crear 2 archivos json: products.json y users.json
+Es necesario tambien crear una carpeta externa al proyecto que sirva como base de datos llamada "db" y dentro de ella crear 2 archivos json: products.json y users.json ya que estos son referenciados por la api. La estructura deberia quedar de la siguiente manera:
+
++ CarpetaGral
+	+ DB
+		+ products.json
+		+ users.json
+	+ Proyecto
+		+ Frontend
+		+ Backend
+
 
 ![Estructura de carpetas](./frontend/img/fold-structure-readme.png)
 
