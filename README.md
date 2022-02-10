@@ -10,7 +10,9 @@ Lo siguiente es una descripción de como instalar el ambiente virtual en windows
 - inicializar la api con el comando "python main.py"
 
 Es necesario tambien crear una carpeta externa al proyecto que sirva como base de datos llamada "db" y dentro de ella crear 2 archivos json: products.json y users.json
-![](./frontend/img/fold-structure-readme.png)
+
+![Estructura de carpetas](./frontend/img/fold-structure-readme.png)
+
 
 en linux van a utilizarse otros comandos que estan explicitos en la documentación de flask
 https://flask.palletsprojects.com/en/2.0.x/installation/
