@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
         async function printUser() {
             const user = await userHandler.getUserData(token)
             navUl.innerHTML = personalizedNav(user.user.name)
+            cartNavDiv[0].remove() // remove cart from nav in purchase.html
             const closeSession = document.getElementById('closeSession')
             closeSession.addEventListener('click', () => userHandler.signOut())
         }
@@ -17,13 +18,20 @@ window.addEventListener('load', () => {
         productsArray = JSON.parse(localStorage.getItem('cart'))
     }
     /* -------------------------------- listeners ------------------------------- */
-    navCart.addEventListener('click', cart.showCart(relativeRoute, cartProductList, cartTotal))
     btnPurchase.addEventListener('click', finishPurchase)
     /* -------------------------------- functions ------------------------------- */
     // function that render products to purchase
     function renderProductsToPurchase() {
         let totalPrice = productsArray.reduce((acum, product) => acum += product.price * product.quantity, 0)
-        productsArray.map((product) => purchaseDiv.innerHTML += productArticle(product))
+        productsArray.map((product) => {
+            purchaseDiv.innerHTML += purchaseCard(product)
+        })
+        console.log(productsArray);
+        productsArray.forEach((product) => {
+            document.getElementById(`btnMinus${product.id}`).addEventListener('click', () => cart.substractQuantity(product, relativeRoute, purchaseDiv, divTotal))
+            document.getElementById(`btnPlus${product.id}`).addEventListener('click', () => cart.incrementQuantity(product, relativeRoute, purchaseDiv, divTotal))
+            document.getElementById(`btnDelete${product.id}`).addEventListener('click', () => cart.removeCartProduct(product, relativeRoute, purchaseDiv, divTotal))
+        })
         divTotal.innerHTML += totalPriceDisplay(totalPrice)
     }
     renderProductsToPurchase()
@@ -39,17 +47,30 @@ window.addEventListener('load', () => {
             confirmButtonText: 'Comprar'
         }).then((result) => {
             if (result.isConfirmed) {
-                userHandler.addPurchase(token)
-                Swal.fire(
-                    'Compra confirmada',
-                    'Le enviaremos un mail con los detalles de su compra',
-                    'success',
-                ).then((result) => {
-                    if (result.isConfirmed) {
-                        localStorage.setItem('cart', '[]')
-                        location.replace('../index.html')
-                    }
-                })
+                if(token) {
+                    userHandler.addPurchase(token)
+                    Swal.fire(
+                        'Compra confirmada',
+                        'Le enviaremos un mail con los detalles de su compra',
+                        'success',
+                    ).then((result) => {
+                        if (result.isConfirmed) {
+                            localStorage.setItem('cart', '[]')
+                            location.replace('../index.html')
+                        }
+                    })
+                } else {
+                    Swal.fire(
+                        'Compra confirmada',
+                        'Le enviaremos un mail con los detalles de su compra',
+                        'success',
+                    ).then((result)=> {
+                        if (result.isConfirmed) {
+                            localStorage.setItem('cart', '[]')
+                            location.replace('../index.html')
+                        }
+                    })
+                }
             }
         })
     }

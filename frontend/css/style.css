@@ -163,6 +163,18 @@
 #purchaseTotal {
     padding: 1em;
 }
+#purchase .purchase-card {
+    overflow: hidden;
+    border: 1px dashed red;
+    height: 15rem;
+}
+#purchase .card-body, #purchase .cart-body {
+    height: 15rem;
+}
+#purchase img {
+    height: 15rem
+}
+
 /* -------------------------------------------------------------------------- */
 .animation {
     cursor: pointer;

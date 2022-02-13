@@ -15,6 +15,7 @@ const cartTotal = document.getElementById('cartTotal')
 const purchaseDiv = document.getElementById('purchase')
 const divTotal = document.getElementById('purchaseTotal')
 const btnPurchase = document.getElementById('finishPurchase')
+const cartNavDiv = document.getElementsByClassName('cart')
 // login.html
 const loginEmail = document.getElementById('loginEmail')
 const loginPassword = document.getElementById('loginPassword')
@@ -46,6 +47,29 @@ const productArticle = function (product) {
                 <div class="row g-0">
                     <div class="col-md-3">
                         <img src="../${product.picture}" class="img-fluid rounded-start modal-img" alt="...">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body cart-body" id="cardBody${product.id}">
+                            <h5 class="card-title cart-title">${product.name.toUpperCase()}</h5>
+                            <p class="card-text cart-price">$${new Intl.NumberFormat("de-DE", {minimumFractionDigits: '2'}).format(product.price*product.quantity)}</p>
+                            <div class="d-flex card-buttons">
+                                <button type="button" class="btn btn-primary btn-sm btn-minus" id="btnMinus${product.id}"><i class="fas fa-minus"></i></button>
+                                <p class="card-text d-flex"><small class="align-self-center quantity">${product.quantity}</small></p>
+                                <button type="button" class="btn btn-primary btn-sm btn-plus" id="btnPlus${product.id}"><i class="fas fa-plus"></i></button>
+                                <p class="card-text d-flex"><small class="align-self-center stock-avaliable">${product.stock} disponibles</small></p>
+                                <button type="button" class="btn btn-primary btn-sm btn-delete ms-auto" id="btnDelete${product.id}"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+}
+// product to purchase Card
+const purchaseCard = function (product) {
+    return `<div class="card purchase-card mb-3" id="card${product.id}">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="${relativeRoute}${product.picture}" class="img-fluid rounded-start modal-img" alt="...">
                     </div>
                     <div class="col-md-9">
                         <div class="card-body cart-body" id="cardBody${product.id}">
