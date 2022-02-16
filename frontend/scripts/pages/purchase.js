@@ -26,7 +26,6 @@ window.addEventListener('load', () => {
         productsArray.map((product) => {
             purchaseDiv.innerHTML += purchaseCard(product)
         })
-        console.log(productsArray);
         productsArray.forEach((product) => {
             document.getElementById(`btnMinus${product.id}`).addEventListener('click', () => cart.substractQuantity(product, relativeRoute, purchaseDiv, divTotal))
             document.getElementById(`btnPlus${product.id}`).addEventListener('click', () => cart.incrementQuantity(product, relativeRoute, purchaseDiv, divTotal))

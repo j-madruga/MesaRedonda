@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name" : "pulsera earth",
+        "price": 5399,
+        "category": "bracelets",
+        "picture": "/img/products/bracelets/pulsera-energy.jpg",
+        "isOnSale": false,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 2,
+        "name" : "anillo rule'em all",
+        "price": 2899,
+        "category": "rings",
+        "picture": "/img/products/rings/anillo-ruleem-all.jpg",
+        "isOnSale": false,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 3,
+        "name" : "collar wolvie",
+        "price": 2639,
+        "category": "collars",
+        "picture": "/img/products/collars/collar-wolvie.jpeg",
+        "isOnSale": false,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 4,
+        "name" : "rosario forgive me",
+        "price": 19949,
+        "category": "rosaries",
+        "picture": "/img/products/rosaries/rosario-forgive-me.jpg",
+        "isOnSale": false,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 5,
+        "name" : "cinturon cowboy",
+        "price": 3059,
+        "category": "belts",
+        "picture": "/img/products/belts/cinturon-cowboy.jpg",
+        "isOnSale": false,
+        "isTendency": true,
+        "stock": 10
+    },
+    {
+        "id": 6,
+        "name" : "pulsera uroboros",
+        "price": 2399,
+        "category": "bracelets",
+        "picture": "/img/products/bracelets/pulsera-uroboros.jpg",
+        "isOnSale": false,
+        "isTendency": true,
+        "stock": 10
+    },
+    {
+        "id": 7,
+        "name" : "collar urban wings",
+        "price": 2999,
+        "category": "collars",
+        "picture": "/img/products/collars/collar-urban-wings.jpg",
+        "isOnSale": false,
+        "isTendency": true,
+        "stock": 10
+    },
+    {
+            "id": 8,
+            "name" : "pulsera maldivas",
+            "price": 2639,
+            "category": "bracelets",
+            "picture": "/img/products/bracelets/pulsera-maldivas.jpeg",
+            "isOnSale": false,
+            "isTendency": true,
+            "stock": 10
+    },
+    {
+        "id": 9,
+        "name" : "anillo sylar",
+        "price": 10199,
+        "category": "rings",
+        "picture": "/img/products/rings/anillo-sylar.jpeg",
+        "isOnSale": true,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 10,
+        "name" : "rosario ex machina",
+        "price": 12499,
+        "category": "rosaries",
+        "picture": "/img/products/rosaries/rosario-ex-machina.jpeg",
+        "isOnSale": true,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 11,
+        "name" : "cinturon montblanc",
+        "price": 3999,
+        "category": "belts",
+        "picture": "/img/products/belts/cinturon-montblanc.jpg",
+        "isOnSale": true,
+        "isTendency": false,
+        "stock": 10
+    },
+    {
+        "id": 12,
+        "name" : "pulsera combo peaky",
+        "price": 5989,
+        "category": "bracelets",
+        "picture": "/img/products/bracelets/pulsera-peaky.jpg",
+        "isOnSale": true,
+        "isTendency": false,
+        "stock": 10
+    }
+]

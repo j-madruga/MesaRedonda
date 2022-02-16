@@ -22,6 +22,9 @@ Es necesario tambien crear una carpeta externa al proyecto que sirva como base d
 
 ![Estructura de carpetas](./frontend/img/fold-structure-readme.png)
 
+esto es necesario debido a que si la carpeta "db" esta dentro del proyecto al introducir un cambio
+live server identifica que hubo cambios en el proyecto y refresca la pagina, causando que no se
+visualice la tienda correctamente, ya que se refresca constantemente.
 
 en linux van a utilizarse otros comandos que estan explicitos en la documentación de flask
 https://flask.palletsprojects.com/en/2.0.x/installation/
