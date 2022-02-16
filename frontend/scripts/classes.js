@@ -225,7 +225,9 @@ class UserHandler {
     }
     // method that add's purchase to user
     addPurchase = (token) => {
-        const purchase = localStorage.getItem('cart')
+        const purchaseProducts = localStorage.getItem('cart')
+        const purchaseDate = new Date()
+        const stringifyDate = JSON.stringify(purchaseDate)
         const endpoint = `${API_URL}/purchases`
         const settings = {
             method: 'PUT',
@@ -233,14 +235,13 @@ class UserHandler {
                 "Content-Type": "application/json",
                 "token": token
             },
-            body: purchase
+            body: `{"products": ${purchaseProducts}, "date": ${stringifyDate}}`
         }
-        console.log(purchase)
+        return new Promise((resolve, reject) => {
             fetch(endpoint, settings)
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((msjErr) => console.log(msjErr))
-        
+            .then((response) => resolve(response.json()))
+            .catch((err)=> reject(err))
+        })        
     }
 }
 

@@ -49,15 +49,24 @@ window.addEventListener('load', () => {
             if (result.isConfirmed) {
                 if(token) {
                     userHandler.addPurchase(token)
-                    Swal.fire(
-                        'Compra confirmada',
-                        'Le enviaremos un mail con los detalles de su compra',
-                        'success',
-                    ).then((result) => {
-                        if (result.isConfirmed) {
-                            localStorage.setItem('cart', '[]')
-                            location.replace('../index.html')
-                        }
+                    .then(
+                        Swal.fire(
+                            'Compra confirmada',
+                            'Le enviaremos un mail con los detalles de su compra',
+                            'success',
+                        ).then((result) => {
+                            if (result.isConfirmed) {
+                                localStorage.setItem('cart', '[]')
+                                location.replace('../index.html')
+                            }
+                        })
+                    )
+                    .catch((error) => {
+                        Swal.fire(
+                            'Ha ocurrido un error :(',
+                            `${error}`,
+                            'error'
+                        )
                     })
                 } else {
                     Swal.fire(

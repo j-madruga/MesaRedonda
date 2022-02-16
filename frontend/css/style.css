@@ -165,7 +165,6 @@
 }
 #purchase .purchase-card {
     overflow: hidden;
-    border: 1px dashed red;
     height: 15rem;
 }
 #purchase .card-body, #purchase .cart-body {
